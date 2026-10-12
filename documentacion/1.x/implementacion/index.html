@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Juan Felipe Valencia Murillo">
+  <meta name="copyright" content="Juan Felipe Valencia Murillo">
+  <meta name="description" content="Documentación - Rutalo - Enrutador en Español">
+  <meta name="keywords" content="implementacion,implementar,router,routing,routes,rutalo">
+  <meta name="robots" content="Index,Follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Implementación - Rutalo - Enrutador en Español</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/images/rutalo-isotipo.svg">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="stylesheet" href="../../../assets/css/docs.css">
+  <link rel="stylesheet" href="../../../assets/css/php-code.css">
+</head>
+
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- INICIO ENCABEZADO -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <img style="width: 145px;" src="../../../assets/images/rutalo-isologo-eslogan.svg">
+      </a>
+
+      <ul class="nav-links nav-center" id="navCenter">
+        <li><a href="/" class="nav-link">Inicio</a></li>
+        <li><a href="../../../documentacion/1.x" class="nav-link active">Documentación</a></li>
+        <li><a href="https://github.com/proesio/rutalo/archive/v1.0.0.zip" class="nav-link">Descargar</a></li>
+        <li><a href="https://proes.io" class="nav-link" target="_blank">PROES</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir Menú" title="Menú">
+          <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <button class="theme-toggle" id="themeToggle">
+          <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+        </button>
+
+        <a href="https://github.com/proesio/rutalo" target="_blank" rel="noopener noreferrer" class="btn-personal"
+          title="Ver repositorio en GitHub.">
+          <span>Repositorio</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+            </path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <!-- FIN ENCABEZADO -->
+
+  <!-- INICIO CONTENIDO PRINCIPAL -->
+  <div class="doc-layout">
+    <!-- INICIO SIDEBAR DE NAVEGACIÓN -->
+    <aside class="sidebar">
+      <div class="version-selector">
+        <ul>
+          <li>
+            <a>
+              v1.x
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="../../../documentacion/1.x/instalacion" class="sidebar-link">Instalación</a></li>
+          <li><a href="../../../documentacion/1.x/implementacion" class="sidebar-link active">Implementación</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- FIN SIDEBAR DE NAVEGACIÓN -->
+
+    <!-- INICIO DOCUMENTACIÓN -->
+    <main class="documentacion">
+      <h1 class="doc-title-main">Implementación</h1>
+
+      <div class="hr"></div>
+
+      <p>
+        Rutalo permite procesar URL limpias y amigables por medio de los protocolos HTTP GET, POST, PUT, PATCH y DELETE,
+        mediante métodos escritos en español.
+      </p>
+      <p>
+        A continuación, se muestra un listado de los 10 métodos disponibles en la clase <em>Rutalo\Ruta</em>.
+      </p>
+      <div class="con-palabras-reservadas">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Método</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><em>accion</em></td>
+              <td>Obtiene la acción de la ruta (callback).</td>
+            </tr>
+            <tr>
+              <td><em>coincide</em></td>
+              <td>Determina si existe coincidencia con la ruta actual.</td>
+            </tr>
+            <tr>
+              <td><em>delete</em></td>
+              <td>Procesa rutas utilizando el método HTTP DELETE.</td>
+            </tr>
+            <tr>
+              <td><em>get</em></td>
+              <td>Procesa rutas utilizando el método HTTP GET.</td>
+            </tr>
+            <tr>
+              <td><em>metodo</em></td>
+              <td>Obtiene el método HTTP de la ruta.</td>
+            </tr>
+            <tr>
+              <td><em>patch</em></td>
+              <td>Procesa rutas utilizando el método HTTP PATCH.</td>
+            </tr>
+            <tr>
+              <td><em>post</em></td>
+              <td>Procesa rutas utilizando el método HTTP POST.</td>
+            </tr>
+            <tr>
+              <td><em>put</em></td>
+              <td>Procesa rutas utilizando el método HTTP PUT.</td>
+            </tr>
+            <tr>
+              <td><em>retorno</em></td>
+              <td>Obtiene el resultado de la acción de la ruta.</td>
+            </tr>
+            <tr>
+              <td><em>ruta</em></td>
+              <td>Obtiene el nombre de la ruta.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A continuación, se muestra un listado de las 2 constantes disponibles en la clase <em>Rutalo\Ruta</em>.</p>
+      <div class="con-palabras-reservadas">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Constante</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><em>Ruta::AUTOR</em></td>
+              <td>Indica el autor de la librería Rutalo.</td>
+            </tr>
+            <tr>
+              <td><em>Ruta::VERSION</em></td>
+              <td>Indica la versión actual de la librería Rutalo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        A continuación, se muestra un listado de los 25 métodos disponibles en la clase <em>Rutalo\Peticion</em>.
+      </p>
+      <div class="con-palabras-reservadas">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Método</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><em>archivo</em></td>
+              <td>Obtiene un valor por su clave, exclusivamente de "$_FILES".</td>
+            </tr>
+            <tr>
+              <td><em>completo</em></td>
+              <td>Determina si un valor está presente en la petición y no está vacío.</td>
+            </tr>
+            <tr>
+              <td><em>consulta</em></td>
+              <td>Obtiene un valor por su clave, exclusivamente de la "query string", si no existe, devuelve el valor
+                por defecto.</td>
+            </tr>
+            <tr>
+              <td><em>contenido</em></td>
+              <td>Obtiene el contenido de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>datos</em></td>
+              <td>Obtiene los datos de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>encabezados</em></td>
+              <td>Obtiene los encabezados de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>encabezado</em></td>
+              <td>Obtiene un valor del encabezado por su clave.</td>
+            </tr>
+            <tr>
+              <td><em>esMetodo</em></td>
+              <td>Determina si el método de la petición coincide con la cadena dada.</td>
+            </tr>
+            <tr>
+              <td><em>excepto</em></td>
+              <td>Obtiene los datos excepto los filtrados de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>ips</em></td>
+              <td>Obtiene un arreglo de direcciones IP de origen de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>ip</em></td>
+              <td>Obtiene la IP de origen de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>metodo</em></td>
+              <td>Obtiene el método de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>noTiene</em></td>
+              <td>Determina si un valor no está presente en la petición.</td>
+            </tr>
+            <tr>
+              <td><em>obtener</em></td>
+              <td>Obtiene un valor por su clave.</td>
+            </tr>
+            <tr>
+              <td><em>ruta</em></td>
+              <td>Obtiene la ruta de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>tieneArchivo</em></td>
+              <td>Determina si un valor de tipo archivo está presente en la petición.</td>
+            </tr>
+            <tr>
+              <td><em>tieneEncabezado</em></td>
+              <td>Determina si un valor de encabezado está presente en la petición.</td>
+            </tr>
+            <tr>
+              <td><em>tiene</em></td>
+              <td>Determina si un valor está presente en la petición.</td>
+            </tr>
+            <tr>
+              <td><em>todo</em></td>
+              <td>Obtiene los datos fusionados con el contenido de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>unicamente</em></td>
+              <td>Obtiene únicamente los datos filtrados de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>urlCompletaConsulta</em></td>
+              <td>Añade o modifica parámetros de la URL actual de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>urlCompleta</em></td>
+              <td>Obtiene la url completa de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>url</em></td>
+              <td>Obtiene la url de la petición sin la "query string".</td>
+            </tr>
+            <tr>
+              <td><em>userAgent</em></td>
+              <td>Obtiene el user agent de la petición.</td>
+            </tr>
+            <tr>
+              <td><em>valor</em></td>
+              <td>Obtiene un valor por su clave, si no existe, devuelve el valor por defecto.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Procesamiento de ruta simple.</p>
+
+      <div class="code-container" data-syntax-highlighter>
+        <button class="copy-btn" title="Copiar código">
+          <svg class="icon-copy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+          <svg class="icon-check" style="display: none; stroke: #5BC800;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </button>
+        <pre><code class="php-code-target"></code></pre>
+        <script type="text/plain" class="raw-code-source">
+<?php
+
+use Rutalo\Ruta;
+
+$ruta = Ruta::get('/', function () {
+    return '¡Hola, mundo!';
+});
+
+// Podemos llamar cualquier método de la clase Rutalo\Ruta, por ejemplo, el método retorno.
+
+echo $ruta->retorno(); // Imprime "¡Hola, mundo!".
+        </script>
+      </div>
+
+      <p>Procesamiento de ruta simple con método de clase.</p>
+
+      <div class="code-container" data-syntax-highlighter>
+        <button class="copy-btn" title="Copiar código">
+          <svg class="icon-copy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+          <svg class="icon-check" style="display: none; stroke: #5BC800;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </button>
+        <pre><code class="php-code-target"></code></pre>
+        <script type="text/plain" class="raw-code-source">
+<?php
+
+use Rutalo\Ruta;
+use Aplicacion\Controladores\MetodoControlador;
+
+Ruta::get('/', [MetodoControlador::class, 'metodoAEjecutar']);
+        </script>
+      </div>
+
+      <p>Procesamiento de ruta con parámetro de ruta.</p>
+
+      <div class="code-container" data-syntax-highlighter>
+        <button class="copy-btn" title="Copiar código">
+          <svg class="icon-copy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+          <svg class="icon-check" style="display: none; stroke: #5BC800;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </button>
+        <pre><code class="php-code-target"></code></pre>
+        <script type="text/plain" class="raw-code-source">
+<?php
+
+use Rutalo\Ruta;
+
+Ruta::get('usuarios/:id', function ($id) {
+    return $id;
+});
+        </script>
+      </div>
+
+      <p>Procesamiento de ruta con parámetro de ruta opcional.</p>
+
+      <div class="code-container" data-syntax-highlighter>
+        <button class="copy-btn" title="Copiar código">
+          <svg class="icon-copy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+          <svg class="icon-check" style="display: none; stroke: #5BC800;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </button>
+        <pre><code class="php-code-target"></code></pre>
+        <script type="text/plain" class="raw-code-source">
+<?php
+
+use Rutalo\Ruta;
+
+Ruta::get('usuarios/:usuario_id/permiso/:permiso_id?', function ($usuarioId, $permisoId = null) {
+    return [$usuarioId, $permisoId];
+});
+        </script>
+      </div>
+
+      <p>Procesamiento de ruta con parámetro de consulta.</p>
+
+      <div class="code-container" data-syntax-highlighter>
+        <button class="copy-btn" title="Copiar código">
+          <svg class="icon-copy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+          <svg class="icon-check" style="display: none; stroke: #5BC800;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </button>
+        <pre><code class="php-code-target"></code></pre>
+        <script type="text/plain" class="raw-code-source">
+<?php
+
+use Rutalo\Ruta;
+use Rutalo\Peticion;
+
+// Ejemplo de ruta de petición: /usuarios?pagina=2.
+
+Ruta::get('usuarios', function (Peticion $peticion) {
+    // Podemos llamar cualquier método de la clase Rutalo\Peticion, por ejemplo, el método consulta.
+    
+    return $peticion->consulta('pagina'); // Imprime "2".
+});
+        </script>
+      </div>
+
+      <p>Procesamiento de ruta con parámetro de consulta y parámetro de ruta.</p>
+
+      <div class="code-container" data-syntax-highlighter>
+        <button class="copy-btn" title="Copiar código">
+          <svg class="icon-copy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+          <svg class="icon-check" style="display: none; stroke: #5BC800;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </button>
+        <pre><code class="php-code-target"></code></pre>
+        <script type="text/plain" class="raw-code-source">
+<?php
+
+use Rutalo\Ruta;
+use Rutalo\Peticion;
+
+// Ejemplo de ruta de petición: /usuarios/7?alcance=total.
+
+Ruta::get('usuarios/:id', function (Peticion $peticion, $id) {    
+    $alcance = $peticion->consulta('alcance');
+
+    return [$id, $alcance];
+});
+        </script>
+      </div>
+
+      <p>Rutalo lanza cuatro tipos de excepciones, <em>AccionNoSoportadaExcepcion</em>, <em>ClaseNoEncontradaExcepcion</em>,
+        <em>MetodoHttpNoSoportadoExcepcion</em> y <em>MetodoNoEncontradoExcepcion</em>, las cuales podemos manejar de la siguiente manera.
+      </p>
+
+      <div class="code-container" data-syntax-highlighter>
+        <button class="copy-btn" title="Copiar código">
+          <svg class="icon-copy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+          <svg class="icon-check" style="display: none; stroke: #5BC800;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </button>
+        <pre><code class="php-code-target"></code></pre>
+        <script type="text/plain" class="raw-code-source">
+<?php
+
+use Rutalo\Excepciones\AccionNoSoportadaExcepcion;
+use Rutalo\Excepciones\ClaseNoEncontradaExcepcion;
+use Rutalo\Excepciones\MetodoNoEncontradoExcepcion;
+use Rutalo\Excepciones\MetodoHttpNoSoportadoExcepcion;
+
+try {
+    // Todo tu código aquí.
+} catch (AccionNoSoportadaExcepcion $excepcion) {
+    // Todo tu código aquí.
+} catch (ClaseNoEncontradaExcepcion $excepcion) {
+    // Todo tu código aquí.
+} catch (MetodoNoEncontradoExcepcion $excepcion) {
+    // Todo tu código aquí.
+} catch (MetodoHttpNoSoportadoExcepcion $excepcion) {
+    // Todo tu código aquí.
+}
+        </script>
+      </div>
+
+      <p>A continuación, presentamos ejemplos básicos de configuraciones de servidor para Nginx y Apache.</p>
+      <p>Configuración básica del bloque <em>server</em> de <em>Nginx</em>.</p>
+
+      <div class="code-container" data-syntax-highlighter>
+        <button class="copy-btn" title="Copiar código">
+          <svg class="icon-copy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+          <svg class="icon-check" style="display: none; stroke: #5BC800;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </button>
+        <pre><code class="php-code-target"></code></pre>
+        <script type="text/plain" class="raw-code-source">
+server {
+    listen 80;
+
+    listen [::]:80;
+
+    server_name tu-dominio.com;
+
+    root /ruta/al/index/de/tu/proyecto;
+
+    index index.php;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.5-fpm.sock;
+
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+
+        include fastcgi_params;
+    }
+}
+        </script>
+      </div>
+
+      <p>En un servidor web <em>Apache</em>, debes crear un archivo con nombre <em>.htaccess</em> en la raíz donde
+        tienes el archivo index de tu proyecto.</p>
+
+      <div class="code-container" data-syntax-highlighter>
+        <button class="copy-btn" title="Copiar código">
+          <svg class="icon-copy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+          <svg class="icon-check" style="display: none; stroke: #5BC800;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </button>
+        <pre><code class="php-code-target"></code></pre>
+        <script type="text/plain" class="raw-code-source">
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+        </script>
+      </div>
+    </main>
+    <!-- FIN DOCUMENTACIÓN -->
+  </div>
+  <!-- FIN CONTENIDO PRINCIPAL -->
+
+  <!-- INICIO FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-info">
+          <a href="https://proes.io" class="brand" target="_blank">
+            <img style="width: 130px;" src="../../../assets/images/proes-isologo-eslogan.svg">
+          </a>
+          <p class="footer-desc">
+            Herramientas de desarrollo web accesibles y de código abierto para la comunidad hispanohablante.
+          </p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://facebook.com/proesio" target="_blank" rel="noopener noreferrer" class="social-link"
+            aria-label="Siguenos en Facebook" title="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCk5pHq8tVsn0RdGoGB56QQg" target="_blank" rel="noopener noreferrer"
+            class="social-link" aria-label="Suscripciones en YouTube" title="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+              </path>
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2018 - <span id="copyrightYear"></span> <a href="https://jfvalenciam.proes.io"
+            target="_blank" rel="noopener noreferrer" class="footer-link">Juan Felipe Valencia Murillo</a></p>
+      </div>
+    </div>
+  </footer>
+  <!-- FIN FOOTER -->
+
+  <!-- INICIO BOTÓN "VOLVER A ARRIBA" -->
+  <button id="scrollToTopBtn" aria-label="Volver arriba" title="Volver arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6" />
+    </svg>
+  </button>
+  <!-- FIN BOTÓN "VOLVER A ARRIBA" -->
+
+  <script src="../../../assets/js/main.js"></script>
+  <script src="../../../assets/js/php-code.js"></script>
+</body>
+
+</html>
